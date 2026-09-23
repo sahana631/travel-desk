@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ form_title }} · Travel Desk{% endblock %}
+{% block content %}
+  <div class="page-heading compact">
+    <div>
+      <div class="eyebrow">TRIP DETAILS</div>
+      <h1>{{ form_title }}</h1>
+    </div>
+    <a class="text-link" href="{{ url_for('dashboard') }}">← Back to trips</a>
+  </div>
+
+  <section class="form-card">
+    <form method="post" class="stack-form">
+      <label for="destination">Destination</label>
+      <input id="destination" name="destination" placeholder="e.g. Lisbon, Portugal" value="{{ trip['destination'] if trip else '' }}" required autofocus>
+
+      <div class="form-row">
+        <div>
+          <label for="start_date">Start date</label>
+          <input id="start_date" name="start_date" type="date" value="{{ trip['start_date'] if trip else '' }}" required>
+        </div>
+        <div>
+          <label for="end_date">End date</label>
+          <input id="end_date" name="end_date" type="date" value="{{ trip['end_date'] if trip else '' }}" required>
+        </div>
+      </div>
+
+      <label for="notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="notes" name="notes" rows="5" placeholder="Anything to remember about this trip?">{{ trip['notes'] if trip else '' }}</textarea>
+
+      <div class="form-actions">
+        <a class="button button-ghost" href="{{ url_for('dashboard') }}">Cancel</a>
+        <button class="button" type="submit">{{ "Save changes" if trip else "Book trip" }}</button>
+      </div>
+    </form>
+  </section>
+{% endblock %}

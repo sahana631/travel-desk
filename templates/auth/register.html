@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Create account · Travel Desk{% endblock %}
+{% block content %}
+  <section class="auth-card">
+    <div class="eyebrow">YOUR TRAVEL DESK</div>
+    <h1>Create your account</h1>
+    <p class="muted">Keep every booking and itinerary in one place.</p>
+    <form method="post" class="stack-form">
+      <label for="username">Username</label>
+      <input id="username" name="username" required autofocus>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required>
+
+      <button class="button" type="submit">Create account</button>
+    </form>
+    <p class="form-footer">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+  </section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Add itinerary item · Travel Desk{% endblock %}
+{% block content %}
+  <div class="page-heading compact">
+    <div>
+      <div class="eyebrow">TRIP #{{ trip["id"] }}</div>
+      <h1>Add itinerary item</h1>
+      <p class="muted">{{ trip["destination"] }} · {{ trip["start_date"] }} → {{ trip["end_date"] }}</p>
+    </div>
+    <a class="text-link" href="{{ url_for('trip_detail', trip_id=trip['id']) }}">← Back to trip</a>
+  </div>
+
+  <section class="form-card">
+    <form method="post" class="stack-form">
+      <label for="item_type">Type</label>
+      <select id="item_type" name="item_type" required>
+        <option value="">Choose a type</option>
+        <option value="Flight">Flight</option>
+        <option value="Hotel">Hotel</option>
+        <option value="Activity">Activity</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="item_datetime">Date and time</label>
+      <input id="item_datetime" name="item_datetime" type="datetime-local" required>
+
+      <label for="description">Description <span class="optional">(optional)</span></label>
+      <textarea id="description" name="description" rows="5" placeholder="e.g. Check in at the hotel, terminal, confirmation number..."></textarea>
+
+      <div class="form-actions">
+        <a class="button button-ghost" href="{{ url_for('trip_detail', trip_id=trip['id']) }}">Cancel</a>
+        <button class="button" type="submit">Add to itinerary</button>
+      </div>
+    </form>
+  </section>
+{% endblock %}
