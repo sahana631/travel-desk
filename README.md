@@ -1,6 +1,6 @@
 # Travel Desk
 
-A straightforward Flask and SQLite travel desk for booking trips and organizing itinerary items.
+A straightforward Flask and SQLite travel desk for booking trips and organizing itinerary items. This is the weaker version of Travel Desk without as many security controls.
 
 ## Run locally
 
