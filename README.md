@@ -5,10 +5,10 @@ A straightforward Flask and SQLite travel desk for booking trips and organizing 
 ## Run locally
 
 ```bash
-python app.py
+python3 app.py
 ```
 
-Then open `http://localhost:5000`.
+Then open `http://localhost:5050`.
 
 The SQLite database is created automatically as `travel_desk.db` on first run. Set `DATABASE_PATH` to use a different database file and `SECRET_KEY` to provide a different Flask session key.
 
